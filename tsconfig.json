@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "types": ["node", "@types/babel__core", "@types/babel__generator", "@types/babel__template"]
+    }
+}
