@@ -1,23 +1,23 @@
 import { Button } from "@chakra-ui/react";
 
-interface IncreaseCounterButtonProps {
+interface DecreaseCounterButtonProps {
   onClick: () => void;
 }
 
-export const IncreaseCounterButton: React.FC<IncreaseCounterButtonProps> = ({
+export const DecreaseCounterButton: React.FC<DecreaseCounterButtonProps> = ({
   onClick,
 }) => {
   return (
     <Button
       onClick={onClick}
-      colorScheme='teal'
+      colorScheme='yellow'
       size="md"
       height="48px"
       width="200px"
       border="2px"
       borderColor="green.500"
     >
-      More
+      Less
     </Button>
   );
 };

@@ -1,11 +1,13 @@
-import React from 'react';
-import { Counter } from './components/Counter';
+import React from "react";
+import {Dashboard} from './components/Dashboard/Dashboard.tsx'
+import { ChakraProvider } from '@chakra-ui/react'
 
 const App = () => {
   return (
-    <Counter />
+    <ChakraProvider>
+      <Dashboard />
+    </ChakraProvider>
   );
 };
 
 export default App;
-
