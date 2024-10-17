@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const Counter = () => {
     const [count, setCount] = React.useState(0);
 
