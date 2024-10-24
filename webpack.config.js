@@ -3,19 +3,21 @@ const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlug
 const path = require('path');
 
 module.exports = {
-  entry: './src/bootstrap.js',
+  entry: './src/index.js',
   mode: 'development',
   output: {
     publicPath: 'auto',
     clean: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.css'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
   devServer: {
     port: 3000,
     static: path.resolve(__dirname, 'dist'),
     hot: true,
+    liveReload: true,
+    watchFiles: ['src/**/*'],
   },
   module: {
     rules: [
@@ -25,16 +27,18 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-      }
-      
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -44,12 +48,12 @@ module.exports = {
         './App': './src/App',
       },
       shared: {
-        react: { singleton: true, eager: true },
-        'react-dom': { singleton: true, eager: true },
+        react: { singleton: true, eager: true, requiredVersion: '18.2.0' },
+        'react-dom': { singleton: true, eager: true, requiredVersion: '18.2.0' },
       },
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
     }),
   ],
 };
