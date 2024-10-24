@@ -1,6 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 
-const theme = extendTheme({
+export const theme = extendTheme({
   colors: {
     brand: {
       50: "#e3f2f9",
@@ -27,11 +27,10 @@ const theme = extendTheme({
         lineHeight: "tall",
       },
       a: {
-        color: "teal.500",
+        color: "white",
         textDecoration: "underline",
+        padding: 8,
       },
     },
   },
 });
-
-export default theme;
