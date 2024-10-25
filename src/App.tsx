@@ -1,15 +1,17 @@
-import React from "react";
-import { Dashboard } from './components/Dashboard/Dashboard'
-import { ChakraProvider } from '@chakra-ui/react'
-import { Counter } from "./components/Counter";
-import theme from "./ui-library/theme";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { Counter, Dashboard, Navbar } from './components';
+import { ThemeProvider } from "./contexts/ThemeContext/ThemeContext";
 
 const App = () => {
   return (
-    <ChakraProvider theme={theme}>
-      <Dashboard />
-      <Counter />
-    </ChakraProvider>
+    <ThemeProvider>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Navigate to="/dashboard" />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/counter" element={<Counter />} />
+      </Routes>
+    </ThemeProvider>
   );
 };
 
