@@ -1,0 +1,1 @@
+export { ControlledTabs } from "./Tabs";

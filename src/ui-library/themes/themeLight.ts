@@ -32,6 +32,8 @@ export const themeLight = extendTheme({
       },
       "#root": {
         height: "100%",
+        maxW: "1200px",
+        margin: "auto",
       },
       a: {
         color: "white",
