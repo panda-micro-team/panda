@@ -23,13 +23,20 @@ export const themeLight = extendTheme({
     global: {
       "html, body": {
         color: "gray.800",
-        backgroundColor: "teal.500",
+        backgroundColor: "brand.50",
         lineHeight: "tall",
+        height: "100%",
+      },
+      body: {
+        padding: 8,
+      },
+      "#root": {
+        height: "100%",
       },
       a: {
         color: "white",
         textDecoration: "underline",
-        padding: 8,
+        padding: 2,
       },
     },
   },

@@ -1,60 +1,63 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
-const path = require('path');
+import webpack from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import path from "path";
+import { fileURLToPath } from "url";
 
-module.exports = {
-  entry: './src/index.js',
-  mode: 'development',
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const { ModuleFederationPlugin } = webpack.container;
+
+export default {
+  entry: "./src/index.js",
+  mode: "development",
   output: {
-    publicPath: 'auto',
+    publicPath: "auto",
     clean: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    extensions: [".tsx", ".ts", ".js", ".jsx"],
   },
   devServer: {
     port: 3000,
-    static: path.resolve(__dirname, 'dist'),
+    static: path.resolve(__dirname, "dist"),
     hot: true,
     liveReload: true,
-    watchFiles: ['src/**/*'],
+    watchFiles: ["src/**/*"],
     historyApiFallback: true,
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        use: 'babel-loader',
+        use: "babel-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container',
-      filename: 'remoteEntry.js',
+      name: "container",
+      filename: "remoteEntry.js",
       exposes: {
-        './App': './src/App',
+        "./App": "./src/App.tsx",
       },
       shared: {
-        react: { singleton: true, eager: true, requiredVersion: '18.2.0' },
-        'react-dom': { singleton: true, eager: true, requiredVersion: '18.2.0' },
+        react: { singleton: true, eager: true, requiredVersion: false },
+        "react-dom": { singleton: true, eager: true, requiredVersion: false },
       },
     }),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: "./public/index.html",
     }),
   ],
 };

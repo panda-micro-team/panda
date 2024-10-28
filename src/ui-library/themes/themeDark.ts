@@ -23,13 +23,16 @@ export const themeDark = extendTheme({
     global: {
       "html, body": {
         color: "gray.800",
-        backgroundColor: "brand.800",
+        backgroundColor: "brand.500",
         lineHeight: "tall",
       },
-      a: {
-        color: "darkgreen",
-        textDecoration: "underline",
+      body: {
         padding: 8,
+      },
+      a: {
+        color: "brand.800",
+        textDecoration: "underline",
+        padding: 2,
       },
     },
   },

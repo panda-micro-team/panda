@@ -10,7 +10,7 @@ export const IncreaseCounterButton: React.FC<IncreaseCounterButtonProps> = ({
   return (
     <Button
       onClick={onClick}
-      colorScheme='teal'
+      colorScheme="teal"
       size="md"
       height="48px"
       width="200px"
