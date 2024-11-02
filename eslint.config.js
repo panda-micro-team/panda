@@ -25,7 +25,7 @@ export default [
         clearTimeout: "readonly",
         setInterval: "readonly",
         clearInterval: "readonly",
-        React: "readonly", // Додаємо React як глобальну змінну
+        React: "readonly",
       },
     },
     plugins: {

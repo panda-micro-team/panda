@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Counter from "../Counter"; // Adjust the path as necessary
+import Counter from "../Counter";
 
 // Mock IncreaseCounterButton component
 jest.mock("../IncreaseCounterButton", () => ({

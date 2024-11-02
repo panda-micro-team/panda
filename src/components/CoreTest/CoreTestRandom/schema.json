@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer", "minimum": 1, "maximum": 1000 },
+    "name": { "type": "string", "minLength": 3, "maxLength": 10 },
+    "email": { "type": "string", "minLength": 5, "maxLength": 20 },
+    "isActive": { "type": "boolean" },
+    "age": { "type": "integer", "minimum": 18, "maximum": 99 },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "notifications": { "type": "boolean" },
+        "theme": { "type": "string", "enum": ["light", "dark", "system"] }
+      },
+      "required": ["notifications", "theme"]
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": { "type": "string", "minLength": 3, "maxLength": 8 }
+    },
+    "friends": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "minimum": 1, "maximum": 1000 },
+          "name": { "type": "string", "minLength": 3, "maxLength": 10 }
+        },
+        "required": ["id", "name"]
+      }
+    }
+  },
+  "required": ["id", "name", "email", "isActive", "preferences"]
+}
