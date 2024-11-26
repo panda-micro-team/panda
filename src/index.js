@@ -6,9 +6,12 @@ const rootElement = document.getElementById("root");
 
 if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
+  const isProduction = process.env.NODE_ENV === "production";
+  const basename = isProduction ? "/panda" : "/";
+
   root.render(
     <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <App />
       </BrowserRouter>
     </React.StrictMode>,
