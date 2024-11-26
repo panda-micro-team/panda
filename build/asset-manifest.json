@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/panda/static/js/main.a3499afd.js",
+    "index.html": "/panda/index.html",
+    "main.a3499afd.js.map": "/panda/static/js/main.a3499afd.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a3499afd.js"
+  ]
+}
