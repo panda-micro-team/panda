@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/panda/static/js/main.4a406101.js",
+    "main.js": "/panda/static/js/main.9730ff3e.js",
     "index.html": "/panda/index.html",
-    "main.4a406101.js.map": "/panda/static/js/main.4a406101.js.map"
+    "main.9730ff3e.js.map": "/panda/static/js/main.9730ff3e.js.map"
   },
   "entrypoints": [
-    "static/js/main.4a406101.js"
+    "static/js/main.9730ff3e.js"
   ]
 }
