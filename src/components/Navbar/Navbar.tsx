@@ -1,4 +1,4 @@
-import { Button, Flex, FormControl, FormLabel, Switch } from "@chakra-ui/react";
+import { Flex, FormControl, FormLabel, Switch } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../contexts";
 
@@ -16,11 +16,8 @@ export const Navbar = () => {
       <Flex as="nav">
         <Link to="/dashboard">Dashboard</Link>
         <Link to="/counter">Counter</Link>
-        <Link to="/countries">
-        <Button colorScheme="blue" variant="ghost">
-          Countries
-        </Button>
-      </Link>
+        <Link to="/countries">Countries</Link>
+        <Link to="/matches">Football Matches</Link>;
       </Flex>
       <Flex>
         <FormControl display="flex" alignItems="center">
