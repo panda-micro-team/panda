@@ -2,6 +2,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { Counter, Dashboard, Footer, Navbar } from "./components";
 import { ThemeProvider } from "./contexts/ThemeContext/ThemeContext";
 import { Flex } from "@chakra-ui/react";
+import CountriesList from "./CountriesList";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/counter" element={<Counter />} />
+          <Route path="/countries" element={<CountriesList />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
