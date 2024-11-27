@@ -18,6 +18,7 @@ export const Navbar = () => {
         <Link to="/counter">Counter</Link>
         <Link to="/countries">Countries</Link>
         <Link to="/matches">Football Matches</Link>;
+        <Link to="/counter">News</Link>
       </Flex>
       <Flex>
         <FormControl display="flex" alignItems="center">
