@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Box, Spinner, Text, VStack } from "@chakra-ui/react";
 
-const API_KEY = "614b11604f57221e5cbb76d1b5e9f733";
-const BASE_URL = "https://v3.football.api-sports.io";
+const FOOTBALL_API_KEY = process.env.REACT_APP_FOOTBALL_API_KEY;
+const FOOTBALL_URL = process.env.REACT_APP_FOOTBALL_URL;
+
+if (!FOOTBALL_API_KEY || !FOOTBALL_URL) {
+  throw new Error(
+    "API_KEY or FOOTBALL_URL is not defined in the environment variables",
+  );
+}
 
 type Match = {
   fixture: {
@@ -28,13 +34,13 @@ const FootballMatches = () => {
     const fetchMatches = async () => {
       try {
         const response = await axios.get<{ response: Match[] }>(
-          `${BASE_URL}/fixtures`,
+          `${FOOTBALL_URL}/fixtures`,
           {
             headers: {
-              "x-rapidapi-key": API_KEY,
+              "x-rapidapi-key": FOOTBALL_API_KEY,
               "x-rapidapi-host": "v3.football.api-sports.io",
             },
-            params: { date: new Date().toISOString().split("T")[0] }, // поточна дата
+            params: { date: new Date().toISOString().split("T")[0] },
           },
         );
         setMatches(response.data.response);

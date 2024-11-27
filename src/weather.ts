@@ -10,8 +10,14 @@ export type Weather = {
   };
 };
 
-const WEATHER_API_KEY = "6b5afb1afe4b40608a9182128242211";
-const BASE_URL = "https://api.weatherapi.com/v1/current.json";
+const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+const WEATHER_URL = process.env.REACT_APP_WEATHER_URL;
+
+if (!WEATHER_API_KEY || !WEATHER_URL) {
+  throw new Error(
+    "WEATHER_API_KEY or WEATHER_URL is not defined in environment variables",
+  );
+}
 
 export const fetchWeather = async (capital: string): Promise<Weather> => {
   if (!capital || capital.trim() === "") {
@@ -22,7 +28,7 @@ export const fetchWeather = async (capital: string): Promise<Weather> => {
   const normalizedCapital = getCityNameForApi(capital);
 
   try {
-    const response = await axios.get<Weather>(BASE_URL, {
+    const response = await axios.get<Weather>(WEATHER_URL, {
       params: {
         key: WEATHER_API_KEY,
         q: encodeURIComponent(normalizedCapital),
@@ -65,7 +71,7 @@ export const fetchWeatherWithTemperature = async (
   const normalizedCapital = getCityNameForApi(capital);
 
   try {
-    const response = await axios.get<Weather>(BASE_URL, {
+    const response = await axios.get<Weather>(WEATHER_URL, {
       params: {
         key: WEATHER_API_KEY,
         q: encodeURIComponent(normalizedCapital),

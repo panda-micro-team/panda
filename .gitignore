@@ -31,4 +31,10 @@ pnpm-debug.log*
 # ssh
 ~/.ssh/*
 
+# Build artifacts
 /build
+
+# Env and secrets
+.env
+.env.local
+secrets.json

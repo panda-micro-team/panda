@@ -2,6 +2,7 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import { fileURLToPath } from "url";
+import Dotenv from "dotenv-webpack"; // Виправлено імпорт
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -45,6 +46,7 @@ export default {
     ],
   },
   plugins: [
+    new Dotenv(), // Виправлено
     new ModuleFederationPlugin({
       name: "container",
       filename: "remoteEntry.js",
